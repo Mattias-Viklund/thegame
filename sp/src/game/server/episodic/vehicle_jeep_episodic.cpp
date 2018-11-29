@@ -82,6 +82,7 @@ BEGIN_DATADESC( CRadarTarget )
 	DEFINE_KEYFIELD( m_iMode,		FIELD_INTEGER,	"mode" ),
 	DEFINE_INPUTFUNC( FIELD_VOID, "Enable",	InputEnable ),
 	DEFINE_INPUTFUNC( FIELD_VOID, "Disable",InputDisable ),
+
 END_DATADESC();
 
 //-----------------------------------------------------------------------------
@@ -94,6 +95,7 @@ void CRadarTarget::Spawn()
 	AddEffects( EF_NODRAW );
 	SetMoveType( MOVETYPE_NONE );
 	SetSolid( SOLID_NONE );
+
 }
 
 //-----------------------------------------------------------------------------
@@ -221,6 +223,7 @@ public:
 		SetSolidFlags( FSOLID_TRIGGER | FSOLID_NOT_SOLID );
 
 		SetTouch( &CVehicleCargoTrigger::CargoTouch );
+
 	}
 
 	void Activate()
@@ -240,6 +243,7 @@ public:
 		}
 
 		BaseClass::EndTouch( pOther );
+
 	}
 
 	//
@@ -1347,6 +1351,7 @@ void CPropJeepEpisodic::DriveVehicle( float flFrameTime, CUserCmd *ucmd, int iBu
 		}
 	}
 	BaseClass::DriveVehicle(flFrameTime, ucmd, iButtonsDown, iButtonsReleased);
+
 }
 
 //-----------------------------------------------------------------------------

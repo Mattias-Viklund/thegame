@@ -2757,6 +2757,7 @@ bool CGrabController::UpdateObject( CBasePlayer *pPlayer, float flError )
 		//Let go of the item if we turn around too fast.
 		if ( flDot <= 0.35f )
 			return false;
+
 	}
 	
 	float pitch = AngleDistance(playerAngles.x,0);

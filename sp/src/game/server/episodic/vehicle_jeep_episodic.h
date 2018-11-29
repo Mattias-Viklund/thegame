@@ -91,7 +91,6 @@ protected:
 	void	SetBusterHopperVisibility(bool visible);
 
 private:
-	
 	void	UpdateWheelDust( void );
 	void	UpdateRadar( bool forceUpdate = false );
 
@@ -145,6 +144,7 @@ private:
 	CNetworkVar( int, m_iNumRadarContacts );
 	CNetworkArray( Vector, m_vecRadarContactPos, RADAR_MAX_CONTACTS );
 	CNetworkArray( int, m_iRadarContactType, RADAR_MAX_CONTACTS );
+
 };
 
 #endif // VEHICLE_JEEP_EPISODIC_H

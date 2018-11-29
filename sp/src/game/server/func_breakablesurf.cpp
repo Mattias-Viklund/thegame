@@ -143,6 +143,7 @@ CWindowPane* CWindowPane::CreateWindowPane( const Vector &vecOrigin, const QAngl
 		pGlass->SetTouch(&CWindowPane::PaneTouch);
 		pGlass->SetLocalAngularVelocity( RandomAngle(-50,50) );
 		pGlass->m_nBody = random->RandomInt(0,2);
+
 	}
 	return pGlass;
 }
@@ -155,7 +156,7 @@ LINK_ENTITY_TO_CLASS( func_breakable_surf, CBreakableSurface );
 
 BEGIN_DATADESC( CBreakableSurface )
 
-	DEFINE_KEYFIELD( m_nSurfaceType,		FIELD_INTEGER,	"surfacetype"),
+	DEFINE_KEYFIELD( m_nSurfaceType,	FIELD_INTEGER,	"surfacetype"),
 	DEFINE_KEYFIELD( m_nFragility,		FIELD_INTEGER,	"fragility"),
 	DEFINE_KEYFIELD( m_vLLVertex,		FIELD_VECTOR,  "lowerleft" ),
 	DEFINE_KEYFIELD( m_vULVertex,		FIELD_VECTOR,  "upperleft" ),
@@ -166,10 +167,10 @@ BEGIN_DATADESC( CBreakableSurface )
 	DEFINE_FIELD( m_nNumWide,			FIELD_INTEGER),	
 	DEFINE_FIELD( m_nNumHigh,			FIELD_INTEGER),	
 	DEFINE_FIELD( m_flPanelWidth,		FIELD_FLOAT),	
-	DEFINE_FIELD( m_flPanelHeight,	FIELD_FLOAT),	
+	DEFINE_FIELD( m_flPanelHeight,		FIELD_FLOAT),	
 	DEFINE_FIELD( m_vNormal,			FIELD_VECTOR),	
 	DEFINE_FIELD( m_vCorner,			FIELD_POSITION_VECTOR),	
-	DEFINE_FIELD( m_bIsBroken,		FIELD_BOOLEAN),	
+	DEFINE_FIELD( m_bIsBroken,			FIELD_BOOLEAN),	
 	DEFINE_FIELD( m_nNumBrokenPanes,	FIELD_INTEGER),	
 	
 	// UNDONE: How to load save this?  Need a way to update
@@ -333,6 +334,7 @@ int CBreakableSurface::OnTakeDamage( const CTakeDamageInfo &info )
 		// physics will kill me now
 		Die( info.GetAttacker(), info.GetDamageForce() );
 		return 0;
+
 	}
 
 	if ( m_nSurfaceType == SHATTERSURFACE_GLASS && info.GetDamageType() & DMG_BLAST )
@@ -420,6 +422,7 @@ void CBreakableSurface::TraceAttack( const CTakeDamageInfo &info, const Vector &
 			filter.SetIgnorePredictionCull( true );
 
 			te->DispatchEffect( filter, 0.0, data.m_vOrigin, "GlassImpact", data );
+
 		}
 
 		if (m_nSurfaceType == SHATTERSURFACE_GLASS)
@@ -503,6 +506,7 @@ void CBreakableSurface::TraceAttack( const CTakeDamageInfo &info, const Vector &
             if ( ( pAttacker ) && ( !bWasBroken ) )
             {
                 gamestats->Event_WindowShattered( pAttacker );
+
             }
 
             //=============================================================================
@@ -781,6 +785,7 @@ void CBreakableSurface::InputShatter( inputdata_t &inputdata )
 void CBreakableSurface::Event_Killed( CBaseEntity *pInflictor, CBaseEntity *pAttacker, float flDamage, int bitsDamageType )
 {
 	return;
+
 }
 
 

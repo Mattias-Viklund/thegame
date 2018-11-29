@@ -2396,6 +2396,7 @@ bool CGameMovement::CheckJumpButton( void )
 	{
 		mv->m_nOldButtons |= IN_JUMP;
 		return false;		// in air, so no effect
+
 	}
 
 	// Don't allow jumping when the player is in a stasis field.

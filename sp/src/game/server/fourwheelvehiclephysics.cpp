@@ -1053,7 +1053,7 @@ void CFourWheelVehiclePhysics::SteeringTurnAnalog( float carSpeed, const vehicle
 //-----------------------------------------------------------------------------
 void CFourWheelVehiclePhysics::UpdateDriverControls( CUserCmd *cmd, float flFrameTime )
 {
-	const float SPEED_THROTTLE_AS_BRAKE = 2.0f;
+	const float SPEED_THROTTLE_AS_BRAKE = 2.0f; /////// 2.0f
 	int nButtons = cmd->buttons;
 
 	// Get vehicle data.
@@ -1064,7 +1064,7 @@ void CFourWheelVehiclePhysics::UpdateDriverControls( CUserCmd *cmd, float flFram
 	float flCarSign = 0.0f;
 	if (carState.speed >= SPEED_THROTTLE_AS_BRAKE) 
 	{
-		flCarSign = 1.0f;
+		flCarSign = 1.0f; /// 1.0f
 	}
 	else if ( carState.speed <= -SPEED_THROTTLE_AS_BRAKE )
 	{
@@ -1226,6 +1226,7 @@ void CFourWheelVehiclePhysics::UpdateDriverControls( CUserCmd *cmd, float flFram
 		else
 		{
 			m_controls.brake = 0.0f;
+
 		}
 	}
 	else if( cmd->forwardmove < 0.0f )
@@ -1408,7 +1409,7 @@ bool CFourWheelVehiclePhysics::IsBoosting( void )
 	if ( pVehicleParams && pVehicleOperating )
 	{	
 		if ( ( pVehicleOperating->boostDelay - pVehicleParams->engine.boostDelay ) > 0.0f )
-			return true;
+			return true; // true
 	}
 
 	return false;
